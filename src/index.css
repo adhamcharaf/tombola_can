@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/* Smart Technology brand colors */
+@theme {
+  --color-smart-red: #E31E24;
+  --color-smart-dark: #C41A1F;
+  --color-smart-black: #1A1A1A;
+}
+
+/* Custom base styles */
+html {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--color-gray-50);
+  color: var(--color-gray-900);
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Prevent zoom on input focus on iOS */
+input, select, textarea {
+  font-size: 16px !important;
+}
+
+/* Custom component classes */
+.btn-primary {
+  background-color: var(--color-smart-red);
+  color: white;
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: background-color 0.15s;
+  min-height: 48px;
+  font-size: 1.125rem;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:active {
+  background-color: var(--color-smart-dark);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-800);
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
+  transition: background-color 0.15s;
+  min-height: 48px;
+  font-size: 1.125rem;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary:active {
+  background-color: var(--color-gray-300);
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--color-gray-200);
+  border-radius: 0.75rem;
+  font-size: 1.125rem;
+  background-color: white;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: var(--color-smart-red);
+}
+
+.input-field::placeholder {
+  color: var(--color-gray-400);
+}
+
+.input-error {
+  border-color: var(--color-red-500);
+}
+
+.input-error:focus {
+  border-color: var(--color-red-500);
+}
+
+.label-text {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-gray-700);
+  margin-bottom: 0.25rem;
+}
+
+.error-text {
+  color: var(--color-red-500);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+/* Background color classes for categories */
+.bg-smart-red {
+  background-color: var(--color-smart-red);
+}
