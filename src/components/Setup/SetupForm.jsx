@@ -31,7 +31,7 @@ export default function SetupForm({ onComplete }) {
             if (cached.length > 0) {
               setEmplacements(cached)
             } else {
-              throw new Error('Impossible de charger les emplacements')
+              throw new Error(`Erreur: ${e.message || 'Connexion impossible'}`)
             }
           }
         } else {

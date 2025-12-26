@@ -14,6 +14,8 @@ export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '')
 
 // Fetch all active emplacements
 export async function fetchEmplacements() {
+  console.log('Fetching emplacements from:', supabaseUrl)
+
   const { data, error } = await supabase
     .from('emplacements')
     .select('id, nom, ville')
@@ -21,7 +23,12 @@ export async function fetchEmplacements() {
     .order('ville', { ascending: true })
     .order('nom', { ascending: true })
 
-  if (error) throw error
+  if (error) {
+    console.error('Supabase error:', error)
+    throw new Error(`${error.message} (code: ${error.code})`)
+  }
+
+  console.log('Emplacements loaded:', data?.length)
   return data
 }
 
