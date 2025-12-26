@@ -69,6 +69,8 @@ export async function insertParticipation(participation) {
 
 // Upload photo to storage
 export async function uploadPhoto(emplacementId, localId, photoBase64) {
+  console.log('📤 Starting photo upload...')
+
   // Convert base64 to blob
   const base64Data = photoBase64.split(',')[1]
   const byteCharacters = atob(base64Data)
@@ -79,8 +81,11 @@ export async function uploadPhoto(emplacementId, localId, photoBase64) {
   const byteArray = new Uint8Array(byteNumbers)
   const blob = new Blob([byteArray], { type: 'image/jpeg' })
 
+  console.log('📦 Blob created, size:', blob.size, 'bytes')
+
   const date = new Date().toISOString().split('T')[0]
   const path = `${emplacementId}/${date}/${localId}.jpg`
+  console.log('📁 Upload path:', path)
 
   const { data, error } = await supabase.storage
     .from('factures')
@@ -89,16 +94,27 @@ export async function uploadPhoto(emplacementId, localId, photoBase64) {
       upsert: false
     })
 
-  if (error) throw error
+  if (error) {
+    console.error('❌ Storage upload error:', error)
+    throw error
+  }
+
+  console.log('✅ Storage upload success:', data)
 
   // Update participation with photo path
-  await supabase
+  const { error: updateError } = await supabase
     .from('participations')
     .update({
       photo_facture_path: path,
       photo_uploaded: true
     })
     .eq('local_id', localId)
+
+  if (updateError) {
+    console.error('❌ Failed to update participation with photo path:', updateError)
+  } else {
+    console.log('✅ Participation updated with photo path')
+  }
 
   return path
 }

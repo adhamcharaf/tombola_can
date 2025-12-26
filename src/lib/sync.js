@@ -29,16 +29,24 @@ async function syncSingleParticipation(participation) {
 
     // Upload photo if exists
     if (participation.photoBase64) {
+      console.log('📸 Photo found, uploading...', {
+        size: participation.photoBase64.length,
+        emplacementId: participation.emplacementId,
+        localId: participation.localId
+      })
       try {
-        await uploadPhoto(
+        const photoPath = await uploadPhoto(
           participation.emplacementId,
           participation.localId,
           participation.photoBase64
         )
+        console.log('✅ Photo uploaded successfully:', photoPath)
       } catch (photoError) {
-        console.error('Photo upload failed:', photoError)
+        console.error('❌ Photo upload failed:', photoError.message, photoError)
         // Don't fail the whole sync for photo issues
       }
+    } else {
+      console.log('⚠️ No photo in participation')
     }
 
     // Mark as synced
