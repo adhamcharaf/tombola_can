@@ -3,11 +3,16 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
+// Debug: show what we got
+console.log('=== SUPABASE CONFIG ===')
+console.log('URL defined:', !!supabaseUrl)
+console.log('URL value:', supabaseUrl)
+console.log('Key defined:', !!supabaseAnonKey)
+console.log('Key starts with:', supabaseAnonKey?.substring(0, 20))
+console.log('=======================')
+
 if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('Missing Supabase environment variables:', {
-    url: !!supabaseUrl,
-    key: !!supabaseAnonKey
-  })
+  console.error('MISSING ENV VARS - Check Vercel Environment Variables')
 }
 
 export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '')
