@@ -8,9 +8,11 @@ export default function Header({ operatorConfig, onEditConfig }) {
       <div className="px-4 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-              <span className="text-smart-red font-bold text-lg">ST</span>
-            </div>
+            <img
+              src="/logo-smart-technology.svg"
+              alt="Smart Technology"
+              className="h-10"
+            />
             <div>
               <h1 className="font-bold text-lg leading-tight">TOMBOLA CAN 2025</h1>
               <p className="text-xs text-red-200">LE MEILLEUR SINON RIEN</p>
