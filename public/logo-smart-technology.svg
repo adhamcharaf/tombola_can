@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+  <defs>
+    <clipPath id="roundedRect">
+      <path d="M20,10 Q10,10 10,25 L10,95 Q10,110 25,110 L375,110 Q390,100 390,85 L390,35 Q390,10 365,10 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Red background with rounded shape -->
+  <path d="M20,10 Q10,10 10,25 L10,95 Q10,110 25,110 L375,110 Q390,100 390,85 L390,35 Q390,10 365,10 Z" fill="#E31E24"/>
+
+  <!-- WiFi icon -->
+  <g transform="translate(50, 60)" fill="none" stroke="white" stroke-width="8" stroke-linecap="round">
+    <!-- Outer arc -->
+    <path d="M-35,-25 Q0,-55 35,-25"/>
+    <!-- Middle arc -->
+    <path d="M-25,-15 Q0,-38 25,-15"/>
+    <!-- Inner arc -->
+    <path d="M-15,-5 Q0,-20 15,-5"/>
+    <!-- Dot -->
+    <circle cx="0" cy="10" r="6" fill="white" stroke="none"/>
+  </g>
+
+  <!-- SMART text -->
+  <text x="115" y="70" font-family="Arial Black, Arial, sans-serif" font-size="48" font-weight="900" fill="white" letter-spacing="2">SMART</text>
+
+  <!-- TECHNOLOGY text -->
+  <text x="115" y="100" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="white" letter-spacing="4">TECHNOLOGY</text>
+</svg>

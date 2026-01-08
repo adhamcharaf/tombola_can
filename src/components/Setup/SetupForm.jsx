@@ -123,9 +123,11 @@ export default function SetupForm({ onComplete }) {
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-md mx-auto pt-8">
         <div className="text-center mb-8">
-          <div className="w-20 h-20 bg-smart-red rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <span className="text-white font-bold text-3xl">ST</span>
-          </div>
+          <img
+            src="/logo-smart-technology.svg"
+            alt="Smart Technology"
+            className="h-20 mx-auto mb-4"
+          />
           <h1 className="text-2xl font-bold text-gray-900">TOMBOLA CAN 2025</h1>
           <p className="text-gray-500 mt-1">Configuration opératrice</p>
         </div>
